@@ -8,11 +8,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 const getUser = async () => {
   const res = await fetch('http://jsonplaceholder.typicode.com/users', { cache: 'no-store' })
-  if (!res.ok ){
+  if (!res.ok) {
     console.log('error')
   }
-  const data :any = await res.json()
-  const user = data[randomInt(1,10)]
+  const data: any = await res.json()
+  const user = data[randomInt(1, 10)]
   return user
 
 }
@@ -22,9 +22,9 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-    
+
   const user = await getUser()
- 
+
   console.log(user.id)
   return (
 
@@ -36,15 +36,15 @@ export default async function RootLayout({
       <head />
       <body className={inter.className}>
         <nav>
-       <Suspense>
+          <Suspense>
 
-        { ` main layout / userlogged: ${user.id} - ${user.name} ` }
-       </Suspense>
+            {` main layout / userlogged: ${user.id} - ${user.name} `}
+          </Suspense>
 
-          
+
           <ul>
             <li>
-            <Link href={`/user/settings/${user.id}`}>Settings</Link>
+              <Link href={`/settings/user/${user.id}`}>Settings</Link>
             </li>
 
             <li>

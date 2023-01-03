@@ -1,7 +1,5 @@
 
 import React, { Suspense } from 'react'
-
-export const dynamicParams = true;
 // const getInfoOfUserId = async (uid : any) => {
 //   const res = await fetch(`http://jsonplaceholder.typicode.com/users/${uid}`)
 
@@ -20,14 +18,14 @@ export const dynamicParams = true;
 //   });
 // }
 
-async function Settings({params} : any) {
-  const {uid } = params
-  console.log(uid)
+async function Settings({ params }: any) {
+  const { uid } = params
+
   return (
 
     <div>
       <Suspense fallback={<div>Loading...</div>}>
-        <h1>Settings of user with id: {uid}</h1>
+        <h1>{uid}</h1>
       </Suspense>
     </div>
 
